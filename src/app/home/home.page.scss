@@ -1,27 +1,65 @@
-#container {
+.page-background {
+  background: url('/assets/wallpaper.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px;
+}
+
+ion-content {
+  --background: transparent !important;
+  height: 100%;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.pokemon-card {
+  background: #6e493a;
+  border: 4px solid #c69c6d;
+  border-radius: 16px;
+  color: #fff;
+  padding: 24px;
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  max-width: 320px;
+  width: 100%;
+  font-family: 'Georgia', serif;
+  transition: transform 0.3s ease;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.pokemon-card:hover {
+  transform: scale(1.02);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
 
-  color: #8c8c8c;
-
-  margin: 0;
+.pokemon-img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+  image-rendering: pixelated;
 }
 
-#container a {
-  text-decoration: none;
+.description {
+  font-size: 14px;
+  margin-top: 12px;
+  opacity: 0.9;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 24px;
 }

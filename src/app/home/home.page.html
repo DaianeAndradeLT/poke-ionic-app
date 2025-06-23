@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Pokémon em destaque</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="page-background">
+  <div class="card-wrapper" *ngIf="pokemon">
+    <div class="pokemon-card">
+      <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="pokemon-img" />
+      <h2>#{{ pokemon.id }} - {{ pokemon.name | titlecase }}</h2>
+      <p class="description">
+        {{ pokemon.name | titlecase }} é um Pokémon da Pokédex nacional. Explore seus tipos, habilidades e descubra mais na próxima etapa!
+      </p>
+    </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="nav-buttons">
+      <ion-button (click)="previous()" [disabled]="currentId === 1">← Anterior</ion-button>
+      <ion-button (click)="next()">Próximo →</ion-button>
+    </div>
   </div>
 </ion-content>
