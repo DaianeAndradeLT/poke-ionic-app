@@ -1,3 +1,4 @@
+/* ==== LAYOUT DE FUNDO E ESTRUTURA === */
 .page-background {
   background: url('/assets/wallpaper.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -22,44 +23,93 @@ ion-content {
 }
 
 
+/* ==== CARTÃO DO POKÉMON === */
 .pokemon-card {
   background: #6e493a;
   border: 4px solid #c69c6d;
   border-radius: 16px;
   color: #fff;
-  padding: 24px;
+  padding: 0;
   text-align: center;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   max-width: 320px;
   width: 100%;
   font-family: 'Georgia', serif;
   transition: transform 0.3s ease;
+  overflow: hidden;
 }
 
 .pokemon-card:hover {
   transform: scale(1.02);
 }
 
-
 .pokemon-img {
   width: 120px;
   height: 120px;
-  margin-bottom: 16px;
+  margin: 16px auto 8px;
   image-rendering: pixelated;
 }
 
+
+/* ==== CABEÇALHO DO CARD === */
+.card-header {
+  background-color: #a77e58;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+
+/* ==== BOTÃO DE FAVORITO === */
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.favorite-btn:hover {
+  color: #ff4d4d;
+}
+
+
+/* ==== DESCRIÇÃO E INFORMAÇÕES === */
 .description {
   font-size: 14px;
-  margin-top: 12px;
+  margin: 0 16px 12px;
   opacity: 0.9;
   font-style: italic;
   line-height: 1.4;
 }
 
+.info {
+  font-size: 14px;
+  margin: 4px 16px 8px;
+}
 
+
+/* ==== NAVEGAÇÃO === */
 .nav-buttons {
   display: flex;
   justify-content: space-between;
   gap: 10px;
   margin-top: 24px;
 }
+
+.favorite-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+

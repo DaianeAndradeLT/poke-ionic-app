@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { PokemonService } from '../services/pokemon.service';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {IonicModule} from '@ionic/angular';
+import {PokemonService} from '../services/pokemon.service';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +14,7 @@ export class HomePage implements OnInit {
   pokemon: any = null;
   currentId: number = 1;
 
-  constructor(private pokemonService: PokemonService) {}
-
-  ngOnInit() {
-    this.loadPokemon();
+  constructor(private pokemonService: PokemonService) {
   }
 
   loadPokemon() {
@@ -25,10 +22,13 @@ export class HomePage implements OnInit {
       this.pokemon = {
         name: data.name,
         image: data.sprites.front_default,
-        id: data.id
+        id: data.id,
+        types: data.types,
+        abilities: data.abilities,
       };
     });
   }
+
 
   next() {
     this.currentId++;
@@ -41,4 +41,30 @@ export class HomePage implements OnInit {
       this.loadPokemon();
     }
   }
+
+  favorites: number[] = [];
+
+  ngOnInit() {
+    this.loadFavorites();
+    this.loadPokemon();
+  }
+
+  loadFavorites() {
+    const stored = localStorage.getItem('favorites');
+    this.favorites = stored ? JSON.parse(stored) : [];
+  }
+
+  toggleFavorite(id: number) {
+    if (this.favorites.includes(id)) {
+      this.favorites = this.favorites.filter(fav => fav !== id);
+    } else {
+      this.favorites.push(id);
+    }
+    localStorage.setItem('favorites', JSON.stringify(this.favorites));
+  }
+
+  isFavorite(id: number): boolean {
+    return this.favorites.includes(id);
+  }
+
 }
