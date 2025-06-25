@@ -37,7 +37,10 @@
     </span>
       </div>
     </div>
-
+    <!-- Botão de ver detalhes -->
+    <ion-button   [routerLink]="['/details', pokemon.id]" expand="block" fill="outline" color="light">
+      Ver detalhes
+    </ion-button>
     <div class="nav-buttons">
       <ion-button (click)="previous()" [disabled]="currentId === 1">← Anterior</ion-button>
       <ion-button (click)="next()">Próximo →</ion-button>
